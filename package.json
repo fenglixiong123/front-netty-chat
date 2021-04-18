@@ -1,0 +1,40 @@
+{
+  "name": "web-netty-chat",
+  "version": "1.0.0",
+  "description": "project for web chat use html+es6+css+layui",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.2.2",
+    "clean-css": "^5.1.2",
+    "copy-webpack-plugin": "^8.1.1",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.3.1",
+    "uglify-es": "^3.3.9",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenglixiong123/web-netty-chat.git"
+  },
+  "keywords": [
+    "web-chat"
+  ],
+  "author": "fenglixiong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fenglixiong123/web-netty-chat/issues"
+  },
+  "homepage": "https://github.com/fenglixiong123/web-netty-chat#readme"
+}

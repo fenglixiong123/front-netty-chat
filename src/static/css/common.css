@@ -1,0 +1,5 @@
+
+.layui-form-label.required:after {
+    content: ' *';
+    color: red;
+}

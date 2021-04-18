@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>netty_websocket</title>
+    <link rel="stylesheet" href="../style/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/css/chat.css">
+
+
+    <script src="../style/js/common/bootstrap.min.js"></script>
+
+    <script src="../style/js/socket.js"></script>
+    <script src="../style/js/chat.js"></script>
+</head>
+
+<body class="background">
+<div class="mianFrame">
+    <div class="panel scroll" id="panel">
+        <div class="header">
+            <img class="avatar img-rounded" id="myAvatar" src="../static/img/dog.png"
+                 style="height: 50px;width: 50px">
+            <div id="nick" style="color: white;font-size: large"></div>
+        </div>
+        <h3 id="userCount" style="color: white;font-size: large;margin-left: 20px"></h3>
+        <div id="userList" style="border-top:1px solid #cccccc"></div>
+    </div>
+    <div id="repeatBox">
+        <div class="box" id="box">
+            <div class="textareaHead" id="textareaHead">群聊室</div>
+            <div class="textarea scroll" id="responseContent"></div>
+            <form onSubmit="return false;">
+                <label>
+                    <textarea id="sendTextarea" class="box_ft" name="message"></textarea>
+                </label>
+                <div class="send">
+                    <button class="sendButton" onClick="sendMessage(this.form.message.value)">发送</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    window.onload = function () {
+        $('#nick').text(getQueryString("nick"));
+        websocket();
+    };
+</script>
+</html>

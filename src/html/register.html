@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册新用户</title>
+
+    <link rel="shortcut icon" href=" ../static/img/favicon.ico" />
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+
+    <script src="../static/libjs/jquery3.6.0.js"></script>
+    <script src="../static/layui/layui.js"></script>
+
+    <style>
+        /*重写label的css改变其宽度*/
+        .layui-form-label {
+            width: 25% !important;
+            /*text-align: center !important;*/
+        }
+        .layui-input-block {
+            margin-left: 33% !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<div>
+
+    <div style="text-align: center;margin: 50px 0">
+        <h1>欢迎注册新用户</h1>
+    </div>
+
+    <div class="layui-row">
+
+        <div class="layui-col-md3">&nbsp;
+        </div>
+
+        <div class="layui-col-md6">
+            <div class="layui-panel" style="padding: 0 60px;background-color: #F5F5F5">
+                <br/>
+                <br/>
+
+                <div style="width: 80%;">
+
+                    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                        <legend>欢迎注册</legend>
+                    </fieldset>
+                    <form class="layui-form" lay-filter="registerForm" action="">
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">昵称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="nickName" lay-verify="required|sizeValidate" lay-verType="tips" lay-reqtext="昵称是必填项，岂能为空？" placeholder="请输入昵称" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">用户名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="userName" lay-verify="required|sizeValidate" lay-verType="tips" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入用户名" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">密码</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="password" lay-verify="required|passValidate" lay-verType="tips" lay-reqtext="密码是必填项，岂能为空？" placeholder="请输入密码" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">确认密码</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="password2" lay-verify="required|passValidate|confirmPassValidate" lay-verType="tips" lay-reqtext="确认密码是必填项，岂能为空？" placeholder="请再次输入密码" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">找回密码问题</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="passwordQuestion" lay-verify="required" lay-verType="tips" lay-reqtext="找回密码问题是必填项，岂能为空？" placeholder="请输入找回密码问题" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">找回密码答案</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="passwordAnswer" lay-verify="required" lay-verType="tips" lay-reqtext="找回密码答案是必填项，岂能为空？" placeholder="请输入找回密码答案" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">头像</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="icon" lay-verify="url" lay-verType="tips" lay-reqtext="头像是必填项，岂能为空？" placeholder="请输入头像地址" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">手机</label>
+                            <div class="layui-input-block">
+                                <input type="tel" name="phone" lay-verify="required|phone" lay-verType="tips" lay-reqtext="手机是必填项，岂能为空？" placeholder="请输入手机号码" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">邮箱</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="email" lay-verify="required|email" lay-verType="tips" lay-reqtext="邮箱是必填项，岂能为空？" placeholder="请输入邮箱" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性别</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="sex" value="male" title="男" checked>
+                                <input type="radio" name="sex" value="female" title="女">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label required">生日</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="birthday" id="birthday" lay-verify="date" lay-verType="tips" placeholder="请选择生日" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">学历</label>
+                            <div class="layui-input-block">
+                                <select name="education" lay-search>
+                                    <option value=""></option>
+                                    <option value="doctor">博士</option>
+                                    <option value="master">硕士</option>
+                                    <option value="college" selected>本科</option>
+                                    <option value="senior">高中</option>
+                                    <option value="junior">初中</option>
+                                    <option value="primary">小学</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">学校</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="school" placeholder="请输入学校" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">居住住址</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="address" placeholder="请输入居住住址" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">个性签名</label>
+                            <div class="layui-input-block">
+                                <textarea name="signature" placeholder="请输入个性签名" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button type="submit" class="layui-btn" lay-submit lay-filter="registerSubmit">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <br/>
+                <br/>
+            </div>
+        </div>
+
+        <div class="layui-col-md3">&nbsp;
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    setTimeout(function () {
+        window.Register.initRegisterForm();
+    },100)
+</script>
+
+</body>
+</html>
